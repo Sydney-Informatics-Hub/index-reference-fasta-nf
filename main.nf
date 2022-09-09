@@ -30,6 +30,7 @@ log.info """\
  Cite this pipeline @ INSERT DOI
  Log issues @ https://github.com/Sydney-Informatics-Hub/IndexReferenceFasta-nf/issues
  All default parameters are set in `nextflow.config`.
+"""
 
 /// Help function
 
@@ -79,7 +80,7 @@ workflow{
 	if (params.gatk) {
 	// create gatk dict file
 	gatk_index(params.ref)}
-}
+}}
 
 workflow.onComplete {
 	log.info ( workflow.success ? "\nDone! Reference indexes created, runtime info is in `./run_Info`" 

@@ -12,8 +12,6 @@ IndexReferenceFasta-nf
         inputs/parameters](#required-minimum-inputsparameters)
   - [Additional notes](#additional-notes)
   - [Help/FAQ/Troubleshooting](#helpfaqtroubleshooting)
-  - [3rd party Tutorials](#3rd-party-tutorials)
-  - [Licence(s)](#licences)
   - [Acknowledgements/citations/credits](#acknowledgementscitationscredits)
 
 ---

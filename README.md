@@ -1,4 +1,4 @@
-[IndexReferenceFasta-nf]
+IndexReferenceFasta-nf
 ===========
 
   - [Description](#description)
@@ -18,23 +18,18 @@
 
 ---
 
-# Description
-
-```
+## Description
 This is a flexible pipeline for generating common reference genome index files for WGS data analysis. IndexReferenceFasta-nf is a Nextflow (DSL2) pipeline that runs the following tools using Singularity containers:
 * Samtools faidx
 * BWA index
 * GATK CreateSequenceDictionary 
 
-# Diagram
-
+## Diagram
 <p align="center"> 
 <img src="https://user-images.githubusercontent.com/73086054/189310509-375fea4f-11fb-41ca-ba52-90760e9a5aa3.png" width="80%">
 </p> 
 
-# User guide
-## Quick start guide
-
+## User guide
 1. Set up 
 
 Clone this repository by running:
@@ -50,13 +45,12 @@ Users can specify which index files to create by using the `--samtools`, `--bwa`
 nextflow run main.nf /path/to/ref.fasta --bwa --samtools --gatk 
 ```
 
-# Benchmarking
-
+## Benchmarking
 Coming soon! 
 
-# Workflow summaries
+## Workflow summaries
 
-## Metadata
+### Metadata
 |metadata field     | workflow_name / workflow_version  |
 |-------------------|:---------------------------------:|
 |Version            | workflow_version                  |
@@ -72,32 +66,30 @@ Coming soon!
 |BioContainers      | NA                                | 
 |bioconda           | NA                                |
 
----
-
-## Component tools
+### Component tools
 
 * samtools/1.15.1
 * gatk/4.2.6.1 
 * bwa/0.7.17
 
-## Required (minimum) inputs/parameters
+### Required (minimum) inputs/parameters
 
 * A reference genome file in fasta format.
 
-# Additional notes
+## Additional notes
 
-# Help / FAQ / Troubleshooting
+### Help/FAQ/Troubleshooting
 
-# Acknowledgements/citations/credits
-## Authors 
+## Acknowledgements/citations/credits
+### Authors 
 - Georgie Samaha (Sydney Informatics Hub, University of Sydney)   
 
-## Acknowledgements 
+### Acknowledgements 
 
 - This pipeline was built using the [Nextflow DSL2 template](https://github.com/Sydney-Informatics-Hub/Nextflow_DSL2_template).  
 - Documentation was created following the [Australian BioCommons documentation guidelines](https://github.com/AustralianBioCommons/doc_guidelines).  
 
-## Cite us to support us! 
+### Cite us to support us! 
 Acknowledgements (and co-authorship, where appropriate) are an important way for us to demonstrate the value we bring to your research. Your research outcomes are vital for ongoing funding of the Sydney Informatics Hub and national compute facilities. We suggest including the following acknowledgement in any publications that follow from this work:  
 
 The authors acknowledge the technical assistance provided by the Sydney Informatics Hub, a Core Research Facility of the University of Sydney and the Australian BioCommons which is enabled by NCRIS via Bioplatforms Australia. 

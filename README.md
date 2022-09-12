@@ -45,7 +45,7 @@ nextflow run main.nf /path/to/ref.fasta --bwa --samtools --gatk
 
 ## Benchmarking
 
-### Human hg38 reference assembly
+### Human hg38 reference assembly @ Pawsey's Nimbus (NCPU/task = 1)
 |task_id|hash     |native_id|name          |status   |exit|submit |duration  |realtime  |%cpu   |peak_rss|peak_vmem|rchar  |wchar  |
 |-------|---------|---------|--------------|---------|----|-------|----------|----------|-------|--------|---------|-------|-------|
 |3      |27/33fffc|131621   |samtools_index|COMPLETED|0   |55:44.9|12.2s     |12s       |99.20% |6.3 MB  |11.8 MB  |3 GB   |19.1 KB|

@@ -44,7 +44,13 @@ nextflow run main.nf /path/to/ref.fasta --bwa --samtools --gatk
 ```
 
 ## Benchmarking
-Coming soon! 
+
+### Human hg38 reference assembly
+|task_id|hash     |native_id|name          |status   |exit|submit |duration  |realtime  |%cpu   |peak_rss|peak_vmem|rchar  |wchar  |
+|-------|---------|---------|--------------|---------|----|-------|----------|----------|-------|--------|---------|-------|-------|
+|3      |27/33fffc|131621   |samtools_index|COMPLETED|0   |55:44.9|12.2s     |12s       |99.20% |6.3 MB  |11.8 MB  |3 GB   |19.1 KB|
+|1      |80/f03e46|131999   |gatk_index    |COMPLETED|0   |55:46.7|22.6s     |22.3s     |231.90%|3.8 GB  |37.1 GB  |3.1 GB |726 KB |
+|2      |ea/e29535|131594   |bwa_index     |COMPLETED|0   |55:44.9|1h 50m 16s|1h 50m 15s|99.50% |4.5 GB  |4.5 GB   |12.1 GB|8.2 GB |
 
 ## Workflow summaries
 

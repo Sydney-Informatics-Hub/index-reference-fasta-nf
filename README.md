@@ -36,7 +36,7 @@ git clone https://github.com/Sydney-Informatics-Hub/IndexReferenceFasta-nf.git
 cd IndexReferenceFasta-nf
 ``` 
 
-2. Generate indexes
+2. Generate indexes  
 Users can specify which index files to create by using the `--samtools`, `--bwa`, and/or `--gatk` flags. All are optional. Run the pipeline with:
 
 ```

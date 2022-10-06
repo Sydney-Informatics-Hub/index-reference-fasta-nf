@@ -28,7 +28,7 @@ This is a flexible pipeline for generating common reference genome index files f
 </p> 
 
 ## User guide
-1. Set up 
+**1. Set up**
 
 Clone this repository by running:
 ```
@@ -36,7 +36,8 @@ git clone https://github.com/Sydney-Informatics-Hub/IndexReferenceFasta-nf.git
 cd IndexReferenceFasta-nf
 ``` 
 
-2. Generate indexes  
+**2. Generate indexes**  
+
 Users can specify which index files to create by using the `--samtools`, `--bwa`, and/or `--gatk` flags. All are optional. Run the pipeline with:
 
 ```

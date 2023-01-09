@@ -41,7 +41,7 @@ cd IndexReferenceFasta-nf
 Users can specify which index files to create by using the `--samtools`, `--bwa`, and/or `--gatk` flags. All are optional. Run the pipeline with:
 
 ```
-nextflow run main.nf /path/to/ref.fasta --bwa --samtools --gatk 
+nextflow run main.nf --ref /path/to/ref.fasta --bwa --samtools --gatk 
 ```
 
 ## Benchmarking

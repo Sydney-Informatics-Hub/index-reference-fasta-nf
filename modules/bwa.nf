@@ -1,7 +1,7 @@
 #!/bin/env nextflow 
 
 process bwa_index {
-	container "${params.bwa__container}"
+	container 'quay.io/biocontainers/bwa:0.7.17--h7132678_9'
 
 	input:
 	path(params.ref)	

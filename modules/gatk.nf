@@ -1,7 +1,7 @@
 #!/bin/env nextflow
 
 process gatk_dict {
-        container "${params.gatk__container}"
+        container 'broadinstitute/gatk:4.3.0.0'
 
         input:
         path(params.ref)

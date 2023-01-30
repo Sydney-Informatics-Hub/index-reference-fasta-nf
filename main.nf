@@ -1,38 +1,33 @@
 #!/usr/bin/env nextflow
 
-/// To use DSL-2 will need to include this
+
 nextflow.enable.dsl=2
 
-// Import subworkflows to be run 
-include { bwa_index } from './modules/bwa.nf' 
-include { samtools_index } from './modules/samtools.nf'
-include { gatk_index } from './modules/gatk.nf'
+// subworkflows to be run 
+include { bwa_index	} from './modules/bwa.nf' 
+include { samtools_index} from './modules/samtools.nf'
+include { gatk_dict	} from './modules/gatk.nf'
 
-/// Print a header for your pipeline 
+// Print header
 
 log.info """\
-     ==============================================
-     ==============================================
-      I N D E X  R E F E R E N C E  F A S T A - N F  
-     ==============================================
-     ==============================================
-  -._    _.--'"`'--._    _.--'"`'--._    _.--'"`'--._      
-     '-:`.'|`|"':-.  '-:`.'|`|"':-.  '-:`.'|`|"':-.  '. .  
-   '.  '.  | |  | |'.  '.  | |  | |'.  '.  | |  | |'.  '.    
-   : '.  '.| |  | |  '.  '.| |  | |  '.  '.| |  | |  '.  '  
-   '   '.  `.:_ | :_.' '.  `.:_ | :_.' '.  `.:_ | :_.' '.   
-          `-..,..-'       `-..,..-'       `-..,..-'           
- 
-                ~~~~ Version: 1.0 ~~~~
- 
- Created by the Sydney Informatics Hub, University of Sydney
- Find documentation and more info @ https://github.com/Sydney-Informatics-Hub/IndexReferenceFasta-nf.git
- Cite this pipeline @ INSERT DOI
- Log issues @ https://github.com/Sydney-Informatics-Hub/IndexReferenceFasta-nf/issues
- All default parameters are set in `nextflow.config`.
+
+===================================================================
+I N D E X  R E F E R E N C E  F A S T A - N F                   
+===================================================================
+Created by the Sydney Informatics Hub, University of Sydney
+Documentation		@ https://github.com/Sydney-Informatics-Hub/IndexReferenceFasta-nf
+Log issues		@ https://github.com/Sydney-Informatics-Hub/IndexReferenceFasta-nf/issues
+===================================================================
+Workflow run parameters 
+===================================================================
+version		: ${params.version}
+reference	: ${params.ref}
+workDir		: ${workflow.workDir}
+===================================================================
 """
 
-/// Help function
+// Help function
 
 def helpMessage() {
     log.info"""
@@ -47,8 +42,6 @@ def helpMessage() {
 	
   Optional Arguments:
 	
-	--samtools		Run samtools faidx
-	
 	--bwa			Run bwa index
 
 	--gatk			Run gatk CreateSequenceDictionary
@@ -59,30 +52,40 @@ def helpMessage() {
 // run workflow
 workflow{
 
-// Show help message if --help is run or if any required params are not 
-// provided at runtime
+// Help message
 
-        if ( params.help || params.ref == false ){
-        // Invoke the help function above and exit
-              helpMessage()
-              exit 1
+if ( params.help || params.ref == false ){
+	// Invoke the help function above and exit
+	helpMessage()
+	exit 1
 
-	} else {
+} else {
+
+	// create samtools index (default)
+	samtools_index(params.ref)
 	
 	if (params.bwa) {
 	// create bwa indexes
 	bwa_index(params.ref)}
 
-	if (params.samtools) {
-	// create samtools index 
-	samtools_index(params.ref)}
-
 	if (params.gatk) {
-	// create gatk dict file
-	gatk_index(params.ref)}
+	// create gatk dictionary
+	gatk_dict(params.ref)}
 }}
 
 workflow.onComplete {
-	log.info ( workflow.success ? "\nDone! Reference indexes created, runtime info is in `./run_Info`" 
-	: "Oops .. something went wrong" )
+
+summary = """
+===================================================================
+Workflow execution summary
+===================================================================
+Duration	: ${workflow.duration}
+Success		: ${workflow.success}
+workDir		: ${workflow.workDir}
+Exit status	: ${workflow.exitStatus}
+===================================================================
+"""
+
+println summary
+
 }

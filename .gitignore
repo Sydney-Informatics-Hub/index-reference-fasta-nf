@@ -4,3 +4,4 @@ NOTES
 .nextflow/
 work/
 runInfo/
+testData/*.fa.*

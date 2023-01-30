@@ -46,8 +46,13 @@ nextflow run main.nf --ref /path/to/ref.fasta --bwa --gatk
 
 If you are running the pipeline on NCI Gadi or Pawsey's Nimbus cloud you should specify this with the `-profile` flag at runtime. This will allow you to use Singularity to run containers at Gadi and Docker to run the containers at Nimbus. 
 
-To run the pipeline at NCI Gadi:
+To run the pipeline at NCI Gadi, first load the Gadi-specific Nextflow installation:
 
+```
+module load nextflow
+```
+
+Then run the pipeline:
 ```
 nextflow run main.nf --ref /path/to/ref.fasta --bwa --gatk -profile gadi --whoami <us1111> --pbs_account <aa00>
 ``` 
@@ -81,7 +86,7 @@ Infrasturcture-specific config files can be found in `config/`
 |License            | GPL-3.0 license                   |
 |Workflow manager   | NextFlow                          |
 |Container          | None                              |
-|Install method     | Manual                            |
+|Install method     | NA                            |
 |GitHub             | Sydney-Informatics-Hub/IndexReferenceFasta-nf                                |
 |bio.tools          | NA                                |
 |BioContainers      | NA                                | 
@@ -101,7 +106,7 @@ Infrasturcture-specific config files can be found in `config/`
 
 ### Help/FAQ/Troubleshooting
 
-* A subset fasta file for testing is available in `testData/` 
+* A subset fasta file for testing is available in [`testData/`](https://github.com/Sydney-Informatics-Hub/IndexReferenceFasta-nf/tree/main/testData) 
 
 ## Acknowledgements/citations/credits
 ### Authors 

@@ -17,7 +17,7 @@ IndexReferenceFasta-nf
 ---
 
 ## Description
-This is a flexible pipeline for generating common reference genome index files for WGS data analysis. IndexReferenceFasta-nf is a Nextflow (DSL2) pipeline that runs the following tools using Singularity containers:
+This is a flexible pipeline for generating common reference genome index files for WGS data analysis. IndexReferenceFasta-nf is a Nextflow (DSL2) pipeline that runs the following tools using either Docker or Singularity to run containerised software for:
 * Samtools faidx
 * BWA index
 * GATK CreateSequenceDictionary 
@@ -38,11 +38,27 @@ cd IndexReferenceFasta-nf
 
 **2. Generate indexes**  
 
-Users can specify which index files to create by using the `--samtools`, `--bwa`, and/or `--gatk` flags. All are optional. Run the pipeline with:
+Users can specify which index files to create by using the `--bwa`, and/or `--gatk` flags. GATK and BWA indexes are optional, while Samtools is run by default. Run the pipeline with:
 
 ```
-nextflow run main.nf --ref /path/to/ref.fasta --bwa --samtools --gatk 
+nextflow run main.nf --ref /path/to/ref.fasta --bwa --gatk 
 ```
+
+If you are running the pipeline on NCI Gadi or Pawsey's Nimbus cloud you should specify this with the `-profile` flag at runtime. This will allow you to use Singularity to run containers at Gadi and Docker to run the containers at Nimbus. 
+
+To run the pipeline at NCI Gadi:
+
+```
+nextflow run main.nf --ref /path/to/ref.fasta --bwa --gatk -profile gadi --whoami <us1111> --pbs_account <aa00>
+``` 
+
+To run the pipeline at Pawsey's Nimbus cloud:
+
+```
+nextflow run main.nf --ref /path/to/ref.fasta --bwa --gatk -profile nimbus
+```
+
+Infrasturcture-specific config files can be found in `config/`
 
 ## Benchmarking
 
@@ -58,8 +74,8 @@ nextflow run main.nf --ref /path/to/ref.fasta --bwa --samtools --gatk
 ### Metadata
 |metadata field     | workflow_name / workflow_version  |
 |-------------------|:---------------------------------:|
-|Version            | workflow_version                  |
-|Maturity           | under development                 |
+|Version            | 1.0                               |
+|Maturity           | stable		                |
 |Creators           | Georgie Samaha                    |
 |Source             | NA                                |
 |License            | GPL-3.0 license                   |
@@ -74,7 +90,7 @@ nextflow run main.nf --ref /path/to/ref.fasta --bwa --samtools --gatk
 ### Component tools
 
 * samtools/1.15.1
-* gatk/4.2.6.1 
+* gatk/4.3.0.0 
 * bwa/0.7.17
 
 ### Required (minimum) inputs/parameters
@@ -84,6 +100,8 @@ nextflow run main.nf --ref /path/to/ref.fasta --bwa --samtools --gatk
 ## Additional notes
 
 ### Help/FAQ/Troubleshooting
+
+* A subset fasta file for testing is available in `testData/` 
 
 ## Acknowledgements/citations/credits
 ### Authors 

@@ -1,15 +1,7 @@
 #!/bin/env nextflow 
 
-// Enable DSL-2 syntax
-nextflow.enable.dsl=2
-
-// Define the process
 process bwa_index {
-        cpus "${params.cpus}"
-	debug = true
-
-	// container
-	container "${params.bwa__container}"
+	container 'quay.io/biocontainers/bwa:0.7.17--h7132678_9'
 
 	input:
 	path(params.ref)	
@@ -20,6 +12,8 @@ process bwa_index {
 
 	script:
 	"""
-	bwa index -a bwtsw "${params.ref}"
+	bwa index \
+		-a bwtsw \
+		"${params.ref}"
 	"""
 }

@@ -1,24 +1,17 @@
 #!/bin/env nextflow
 
-// Enable DSL-2 syntax
-nextflow.enable.dsl=2
-
-// Define the process
 process samtools_index {
-        cpus "${params.cpus}"
-        debug = true
+	container "quay.io/biocontainers/samtools:1.15.1--h1170115_0"
+	
+	input:
+	path(params.ref)
 
-        // container
-        container "${params.samtools__container}"
+	output:
+	path("*")
 
-        input:
-        path(params.ref)
-
-        output:
-        path("*"), optional:true
-
-        script:
-        """
-        samtools faidx "${params.ref}"
-        """
+	script:
+	"""
+	samtools faidx \
+		"${params.ref}"
+	"""
 }

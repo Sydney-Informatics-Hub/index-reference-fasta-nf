@@ -1,24 +1,18 @@
 #!/bin/env nextflow
 
-// Enable DSL-2 syntax
-nextflow.enable.dsl=2
-
-// Define the process
-process gatk_index {
-        cpus "${params.cpus}"
-        debug = true
-
-        // container
-        container "${params.gatk__container}"
+process gatk_dict {
+        container 'broadinstitute/gatk:4.3.0.0'
 
         input:
         path(params.ref)
 
         output:
-        path("*"), optional:true
+        path("*")
 
         script:
         """
-        gatk CreateSequenceDictionary -R ${params.ref} -O ${params.ref}.dict
+	gatk CreateSequenceDictionary \
+		-R ${params.ref} \
+		-O ${params.ref}.dict
         """
 }

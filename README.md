@@ -41,10 +41,22 @@ cd IndexReferenceFasta-nf
 Users can specify which index files to create by using the `--bwa`, and/or `--gatk` flags. GATK and BWA indexes are optional, while Samtools is run by default. Run the pipeline with:
 
 ```
-nextflow run main.nf --ref /path/to/ref.fasta --bwa --gatk 
+nextflow run main.nf --ref /path/to/ref.fasta --bwa --gatk -profile <nimbus/gadi/standard>
 ```
 
 If you are running the pipeline on NCI Gadi or Pawsey's Nimbus cloud you should specify this with the `-profile` flag at runtime. This will allow you to use Singularity to run containers at Gadi and Docker to run the containers at Nimbus. 
+
+**Standard**
+
+To run the pipeline on your own system, you will need to have Nextflow installed. You can adjust the `standard.config`  configuration file depending on your own system needs. Currently it runs containers with Singularity. You can test your customised config file using the test fasta available in `testData`.
+
+To run the pipeline with the `standard.config`, run the following: 
+
+```
+nextflow run main.nf --ref /path/to/ref.fasta --bwa --gatk -profile standard 
+```
+
+**NCI Gadi HPC**  
 
 To run the pipeline at NCI Gadi, first load the Gadi-specific Nextflow installation:
 
@@ -56,6 +68,8 @@ Then run the pipeline:
 ```
 nextflow run main.nf --ref /path/to/ref.fasta --bwa --gatk -profile gadi --whoami <us1111> --pbs_account <aa00>
 ``` 
+
+**Pawsey Nimbus cloud**
 
 To run the pipeline at Pawsey's Nimbus cloud:
 

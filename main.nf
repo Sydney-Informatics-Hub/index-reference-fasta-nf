@@ -1,25 +1,22 @@
 #!/usr/bin/env nextflow
-
-
 nextflow.enable.dsl=2
 
-// subworkflows to be run 
-include { bwa_index	} from './modules/bwa.nf' 
+// subworkflows to be run
+include { bwa_index	} from './modules/bwa.nf'
 include { samtools_index} from './modules/samtools.nf'
 include { gatk_dict	} from './modules/gatk.nf'
 
 // Print header
-
 log.info """\
 
 ===================================================================
-I N D E X  R E F E R E N C E  F A S T A - N F                   
+I N D E X  R E F E R E N C E  F A S T A - N F
 ===================================================================
 Created by the Sydney Informatics Hub, University of Sydney
-Documentation		@ https://github.com/Sydney-Informatics-Hub/IndexReferenceFasta-nf
-Log issues		@ https://github.com/Sydney-Informatics-Hub/IndexReferenceFasta-nf/issues
+Documentation   @ https://github.com/Sydney-Informatics-Hub/IndexReferenceFasta-nf
+Log issues      @ https://github.com/Sydney-Informatics-Hub/IndexReferenceFasta-nf/issues
 ===================================================================
-Workflow run parameters 
+Workflow run parameters
 ===================================================================
 version		: ${params.version}
 reference	: ${params.ref}
@@ -28,32 +25,30 @@ workDir		: ${workflow.workDir}
 """
 
 // Help function
-
 def helpMessage() {
     log.info"""
-  OOPS, YOU FORGOT SOME REQUIRED ARGUMENTS!
+OOPS, YOU FORGOT SOME REQUIRED ARGUMENTS!
 
-  Usage:  nextflow run https://github.com/Sydney-Informatics-Hub/bamQC-nf --ref <reference.fasta> --samtools --gatk --bwa
+Usage:  nextflow run main.nf --ref <reference.fasta> --gatk --bwa
 
-  Required Arguments:
-	
-	--ref			Specify path to reference FASTA file 
-				(include file extension).
-	
-  Optional Arguments:
-	
-	--bwa			Run bwa index
+Required Arguments:
 
-	--gatk			Run gatk CreateSequenceDictionary
+	--ref       Specify path to reference FASTA file
+                (include file extension).
 
-    """.stripIndent()
+Optional Arguments:
+
+	--bwa       Run bwa index
+
+	--gatk      Run gatk CreateSequenceDictionary
+
+""".stripIndent()
 }
 
 // run workflow
 workflow{
 
 // Help message
-
 if ( params.help || params.ref == false ){
 	// Invoke the help function above and exit
 	helpMessage()
@@ -63,7 +58,7 @@ if ( params.help || params.ref == false ){
 
 	// create samtools index (default)
 	samtools_index(params.ref)
-	
+
 	if (params.bwa) {
 	// create bwa indexes
 	bwa_index(params.ref)}

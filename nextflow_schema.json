@@ -16,47 +16,47 @@
                     "type": "string",
                     "default": "null",
                     "description": "Path to reference fasta",
-                    "fa_icon": "fa-solid fa-dna"
+                    "fa_icon": "fas fa-dna"
                 },
                 "bwa": {
                     "type": "boolean",
                     "description": "Generate bwa index files",
-                    "fa_icon": "fa-solid fa-b"
+                    "fa_icon": "far fa-file-alt"
                 },
                 "gatk": {
                     "type": "boolean",
                     "description": "Generate gatk index files",
-                    "fa_icon": "fa-solid fa-g"
+                    "fa_icon": "far fa-file-alt"
                 },
                 "samtools": {
                     "type": "boolean",
                     "default": true,
                     "description": "Generate samtools index files",
-                    "fa_icon": "fa-solid fa-s"
+                    "fa_icon": "far fa-file-alt"
                 },
                 "help": {
                     "type": "boolean",
                     "description": "Display help text",
-                    "fa_icon": "fa-solid fa-question-circle",
+                    "fa_icon": "fas fa-question-circle",
                     "hidden": true
                 },
                 "whoami": {
                     "type": "string",
                     "default": "false",
                     "description": "User name for Pawsey and NCI runs",
-                    "fa_icon": "fa-solid fa-question-user"
+                    "fa_icon": "fas fa-user-circle"
                 },
                 "pbs_account": {
                     "type": "string",
                     "default": "false",
                     "description": "Project name on NCI Gadi HPC",
-                    "fa_icon": "fa-regular fa-computer-classic"
+                    "fa_icon": "fas fa-plug"
                 },
                 "slurm_account": {
                     "type": "string",
                     "default": "false",
                     "description": "Project name on Pawsey Setonix HPC",
-                    "fa_icon": "fa-regular fa-computer-classic"
+                    "fa_icon": "fas fa-plug"
                 }
             },
             "required": ["ref"]

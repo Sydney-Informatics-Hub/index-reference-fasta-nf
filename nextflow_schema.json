@@ -12,43 +12,41 @@
             "description": "Options for running the workflow.",
             "help_text": "These options are common to all nf-core pipelines and allow you to customise some of the core preferences for how the pipeline runs.\n\nTypically these options would be set in a Nextflow config file loaded for all pipeline runs, such as `~/.nextflow/config`.",
             "properties": {
+                "ref": {
+                    "type": "string",
+                    "default": "null",
+                    "description": "Path to reference fasta",
+                    "fa_icon": "fas fa-dna"
+                },
+                "bwa": {
+                    "type": "boolean",
+                    "description": "Generate bwa index files",
+                    "fa_icon": "fas fa-b"
+                },
+                "gatk": {
+                    "type": "boolean",
+                    "description": "Generate gatk index files",
+                    "fa_icon": "fas fa-g"
+                },
+                "samtools": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "Generate samtools index files",
+                    "fa_icon": "fas fa-s"
+                },
                 "help": {
                     "type": "boolean",
                     "description": "Display help text.",
                     "fa_icon": "fas fa-question-circle",
                     "hidden": true
                 }
-            }
+            },
+            "required": ["ref"]
         }
     },
     "allOf": [
         {
             "$ref": "#/definitions/options"
         }
-    ],
-    "properties": {
-        "ref": {
-            "type": "string",
-            "default": "false",
-            "description": "Path to reference fasta",
-            "fa_icon": "fas fa-dna"
-        },
-        "bwa": {
-            "type": "boolean",
-            "description": "Generate bwa index files",
-            "fa_icon": "fas fa-b"
-        },
-        "samtools": {
-            "type": "boolean",
-            "default": true,
-            "description": "Generate samtools index files",
-            "fa_icon": "fas fa-s"
-        },
-        "gatk": {
-            "type": "boolean",
-            "description": "Generate gatk index files",
-            "fa_icon": "fas fa-g"
-        }
-    },
-    "required": ["ref"]
+    ]
 }

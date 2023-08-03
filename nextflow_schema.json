@@ -36,9 +36,27 @@
                 },
                 "help": {
                     "type": "boolean",
-                    "description": "Display help text.",
+                    "description": "Display help text",
                     "fa_icon": "fas fa-question-circle",
                     "hidden": true
+                },
+                "whoami": {
+                    "type": "string",
+                    "default": "false",
+                    "description": "User name for Pawsey and NCI runs",
+                    "fa_icon": "fas fa-question-user"
+                },
+                "pbs_account": {
+                    "type": "string",
+                    "default": "false",
+                    "description": "Project name on NCI Gadi HPC",
+                    "fa_icon": "fas fa-computer-classic"
+                },
+                "slurm_account": {
+                    "type": "string",
+                    "default": "false",
+                    "description": "Project name on Pawsey Setonix HPC",
+                    "fa_icon": "fas fa-computer-classic"
                 }
             },
             "required": ["ref"]

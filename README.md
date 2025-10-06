@@ -1,20 +1,5 @@
-IndexReferenceFasta-nf
+index-feference-fasta-nf
 ===========
-
-  - [Description](#description)
-  - [Diagram](#diagram)
-  - [User guide](#user-guide)
-  - [Benchmarking](#benchmarking)
-  - [Workflow summaries](#workflow-summaries)
-      - [Metadata](#metadata)
-      - [Component tools](#component-tools)
-      - [Required (minimum)
-        inputs/parameters](#required-minimum-inputsparameters)
-  - [Additional notes](#additional-notes)
-  - [Help/FAQ/Troubleshooting](#helpfaqtroubleshooting)
-  - [Acknowledgements/citations/credits](#acknowledgementscitationscredits)
-
----
 
 ## Description
 This is a flexible pipeline for generating common reference genome index files for WGS data analysis. IndexReferenceFasta-nf is a Nextflow (DSL2) pipeline that runs the following tools using either Docker or Singularity to run containerised software for:
@@ -76,7 +61,7 @@ nextflow run main.nf --ref /path/to/ref.fasta --bwa --gatk -profile gadi --whoam
 |Workflow manager   | NextFlow                          |
 |Container          | None                              |
 |Install method     | NA                            |
-|GitHub             | Sydney-Informatics-Hub/IndexReferenceFasta-nf                                |
+|GitHub             | Sydney-Informatics-Hub/index-reference-fasta-nf                                |
 |bio.tools          | NA                                |
 |BioContainers      | NA                                | 
 |bioconda           | NA                                |
@@ -88,7 +73,7 @@ nextflow run main.nf --ref /path/to/ref.fasta --bwa --gatk -profile gadi --whoam
 * bwa/0.7.17
 * bwa-mem2/2.3
 
-### Required (minimum) inputs/parameters
+### Required (minimum) inputs
 
 * A reference genome file in fasta format.
 

@@ -14,8 +14,8 @@ log.info """\
 I N D E X  R E F E R E N C E  F A S T A - N F
 ===================================================================
 Created by the Sydney Informatics Hub, University of Sydney
-Documentation   @ https://github.com/Sydney-Informatics-Hub/IndexReferenceFasta-nf
-Log issues      @ https://github.com/Sydney-Informatics-Hub/IndexReferenceFasta-nf/issues
+Documentation   @ https://github.com/Sydney-Informatics-Hub/index-reference-fasta-nf
+Log issues      @ https://github.com/Sydney-Informatics-Hub/index-reference-fasta-nf/issues
 ===================================================================
 Workflow run parameters
 ===================================================================
@@ -51,6 +51,10 @@ Optional Arguments:
 	--gatk      Run gatk CreateSequenceDictionary
 
 	--samtools  Run samtools faidx
+
+	--whoami		Your username (for Gadi only).
+
+	--gadi_account Your Gadi project account (for Gadi only).
 """.stripIndent()
 }
 

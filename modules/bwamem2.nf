@@ -1,7 +1,7 @@
 #!/bin/env nextflow
 
-process bwa_index {
-	container 'quay.io/biocontainers/bwa:0.7.17--h7132678_9'
+process bwamem2_index {
+	container 'quay.io/biocontainers/bwa-mem2:2.3--he70b90d_0'
 
 	input:
 	path(params.ref)
@@ -11,8 +11,7 @@ process bwa_index {
 
 	script:
 	"""
-	bwa index \
-		-a bwtsw \
+	bwa-mem2 index \
 		"${params.ref}"
 	"""
 }

@@ -7,8 +7,7 @@ process bwa_index {
 	path(params.ref)
 
 	output:
-	path("*"), optional:true
-	//tuple val(meta), path("*.bai") , optional:true, emit: bai
+	path("*")
 
 	script:
 	"""

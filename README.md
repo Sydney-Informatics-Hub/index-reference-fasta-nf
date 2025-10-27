@@ -47,7 +47,7 @@ module load nextflow
 
 Then run the pipeline:
 ```
-nextflow run main.nf --ref /path/to/ref.fasta --bwa --gatk -profile gadi --whoami <us1111> --pbs_account <aa00>
+nextflow run main.nf --ref /path/to/ref.fasta --bwa --gatk -profile gadi --whoami <us1111> --gadi_account <aa00>
 ``` 
 
 ### Metadata
